@@ -1,4 +1,4 @@
-package com.example.hackaton_1.dto.StoryNode;
+package dto.StoryNode;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

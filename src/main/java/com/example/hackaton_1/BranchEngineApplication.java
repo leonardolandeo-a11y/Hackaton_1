@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Hackaton1Application {
+public class BranchEngineApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Hackaton1Application.class, args);
+        SpringApplication.run(BranchEngineApplication.class, args);
     }
-
 }
