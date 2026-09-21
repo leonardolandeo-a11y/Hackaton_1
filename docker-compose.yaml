@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16
+    container_name: bandersnatch-db
+    environment:
+      POSTGRES_DB: bandersnatch
+      POSTGRES_USER: tuckersoft
+      POSTGRES_PASSWORD: colin1984
+    ports:
+      - "5432:5432"
+    volumes:
+      - bandersnatch-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tuckersoft -d bandersnatch"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bandersnatch-app
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+
+volumes:
+  bandersnatch-data:
