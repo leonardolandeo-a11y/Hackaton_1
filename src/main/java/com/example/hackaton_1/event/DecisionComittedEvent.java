@@ -1,4 +1,4 @@
-package com.example.hackaton_1.dto;
+package com.example.hackaton_1.event;
 
 import java.time.Instant;
 
