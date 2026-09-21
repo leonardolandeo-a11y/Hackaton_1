@@ -1,6 +1,8 @@
 package com.example.hackaton_1.model;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.time.Instant;
 
@@ -121,7 +123,18 @@ public class StoryNode {
         return createdAt;
     }
 
+    @OneToMany(mappedBy = "currentNode")
+    private List<Playthrough> playthroughs = new ArrayList<>();
+
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<Playthrough> getPlaythroughs() {
+        return playthroughs;
+    }
+
+    public void setPlaythroughs(List<Playthrough> playthroughs) {
+        this.playthroughs = playthroughs;
     }
 }
