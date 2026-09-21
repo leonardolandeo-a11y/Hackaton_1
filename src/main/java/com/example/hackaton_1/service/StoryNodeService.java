@@ -1,8 +1,8 @@
 package com.example.hackaton_1.service;
 
-import com.example.hackaton_1.dto.StoryNode.StoryNodePageResponseDTO;
-import com.example.hackaton_1.dto.StoryNode.StoryNodeRequestDTO;
-import com.example.hackaton_1.dto.StoryNode.StoryNodeResponseDTO;
+import dto.StoryNode.StoryNodePageResponseDTO;
+import dto.StoryNode.StoryNodeRequestDTO;
+import dto.StoryNode.StoryNodeResponseDTO;
 import com.example.hackaton_1.model.StoryNode;
 import com.example.hackaton_1.repository.StoryNodeRepository;
 

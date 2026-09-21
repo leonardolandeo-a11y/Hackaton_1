@@ -1,8 +1,8 @@
 package com.example.hackaton_1.controller;
 
-import com.example.hackaton_1.dto.StoryNode.StoryNodePageResponseDTO;
-import com.example.hackaton_1.dto.StoryNode.StoryNodeRequestDTO;
-import com.example.hackaton_1.dto.StoryNode.StoryNodeResponseDTO;
+import dto.StoryNode.StoryNodePageResponseDTO;
+import dto.StoryNode.StoryNodeRequestDTO;
+import dto.StoryNode.StoryNodeResponseDTO;
 import com.example.hackaton_1.service.StoryNodeService;
 
 import jakarta.validation.Valid;

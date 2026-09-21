@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.dto.decision;
+package dto;
 
 import java.time.Instant;
 
