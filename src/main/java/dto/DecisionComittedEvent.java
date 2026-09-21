@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.event;
+package dto;
 
 import java.time.Instant;
 
