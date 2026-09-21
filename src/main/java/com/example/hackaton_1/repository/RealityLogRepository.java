@@ -1,6 +1,6 @@
-package com.tuckersoft.branchengine.repository;
+package com.example.hackaton_1.repository;
 
-import com.tuckersoft.branchengine.entity.RealityLog;
+import com.example.hackaton_1.model.RealityLog;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

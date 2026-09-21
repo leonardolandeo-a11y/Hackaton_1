@@ -1,6 +1,6 @@
-package com.tuckersoft.branchengine.repository;
+package com.example.hackaton_1.repository;
 
-import com.tuckersoft.branchengine.entity.Decision;
+import com.example.hackaton_1.model.Decision;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

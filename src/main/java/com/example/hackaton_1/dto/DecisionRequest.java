@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.dto.decision;
+package com.example.hackaton_1.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

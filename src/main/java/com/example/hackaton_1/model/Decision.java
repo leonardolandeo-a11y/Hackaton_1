@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.entity;
+package com.example.hackaton_1.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

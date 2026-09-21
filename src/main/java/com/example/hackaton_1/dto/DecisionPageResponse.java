@@ -1,10 +1,10 @@
-package com.tuckersoft.branchengine.dto.decision;
+package com.example.hackaton_1.dto;
 
 import java.util.List;
 
 public record DecisionPageResponse(
 
-        List<com.tuckersoft.branchengine.dto.decision.DecisionResponse> content,
+        List<DecisionResponse> content,
         long totalElements,
         int totalPages,
         int currentPage,

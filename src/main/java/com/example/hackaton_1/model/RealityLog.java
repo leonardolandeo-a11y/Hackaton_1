@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.entity;
+package com.example.hackaton_1.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,7 +20,7 @@ public class RealityLog {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "decision_id", nullable = false)
-    private com.tuckersoft.branchengine.entity.Decision decision;
+    private Decision decision;
 
     @Column(nullable = false)
     private String recipientEmail;

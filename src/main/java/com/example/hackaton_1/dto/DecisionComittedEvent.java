@@ -1,4 +1,4 @@
-package com.tuckersoft.branchengine.event;
+package com.example.hackaton_1.dto;
 
 import java.time.Instant;
 
