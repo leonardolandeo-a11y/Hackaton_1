@@ -15,5 +15,5 @@ public interface PlaythroughRepository extends JpaRepository<Playthrough, Long> 
 
     Optional<Playthrough> findByPlayerTag(String playerTag);
 
-    List<Playthrough> findByUser(User user);
+    List<Playthrough> findByUserOrderByCreatedAtDesc(User user);
 }
