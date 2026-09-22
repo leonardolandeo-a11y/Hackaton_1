@@ -1,11 +1,11 @@
 package com.tuckersoft.branchengine.service;
 
-import com.tuckersoft.branchengine.dto.Decision.DecisionRequest;
-import com.tuckersoft.branchengine.dto.Decision.DecisionResponse;
-import com.tuckersoft.branchengine.model.Decision;
-import com.tuckersoft.branchengine.model.Playthrough;
-import com.tuckersoft.branchengine.model.StoryNode;
-import com.tuckersoft.branchengine.model.User;
+import com.tuckersoft.branchengine.dto.DecisionRequest;
+import com.tuckersoft.branchengine.dto.DecisionResponse;
+import com.tuckersoft.branchengine.entity.Decision;
+import com.tuckersoft.branchengine.entity.Playthrough;
+import com.tuckersoft.branchengine.entity.StoryNode;
+import com.tuckersoft.branchengine.entity.User;
 import com.tuckersoft.branchengine.repository.DecisionRepository;
 import com.tuckersoft.branchengine.repository.PlaythroughRepository;
 import com.tuckersoft.branchengine.repository.RealityLogRepository;

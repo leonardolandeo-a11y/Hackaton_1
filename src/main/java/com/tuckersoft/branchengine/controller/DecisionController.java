@@ -1,8 +1,8 @@
 package com.tuckersoft.branchengine.controller;
 
-import com.tuckersoft.branchengine.dto.Decision.DecisionPageResponse;
-import com.tuckersoft.branchengine.dto.Decision.DecisionRequest;
-import com.tuckersoft.branchengine.dto.Decision.DecisionResponse;
+import com.tuckersoft.branchengine.dto.DecisionPageResponse;
+import com.tuckersoft.branchengine.dto.DecisionRequest;
+import com.tuckersoft.branchengine.dto.DecisionResponse;
 import com.tuckersoft.branchengine.dto.RealityLogResponse;
 import com.tuckersoft.branchengine.service.DecisionService;
 
