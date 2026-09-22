@@ -16,6 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import com.tuckersoft.branchengine.exceptions.ForbiddenException;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
@@ -96,6 +97,19 @@ public class GlobalExceptionHandler {
                 HttpStatus.BAD_REQUEST,
                 "BAD_REQUEST",
                 "Invalid value for parameter: " + exception.getName(),
+                request
+        );
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<ErrorResponse> handleForbidden(
+            ForbiddenException exception,
+            HttpServletRequest request) {
+
+        return buildResponse(
+                HttpStatus.FORBIDDEN,
+                "FORBIDDEN",
+                exception.getMessage(),
                 request
         );
     }

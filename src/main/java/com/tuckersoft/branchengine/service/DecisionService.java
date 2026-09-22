@@ -1,14 +1,15 @@
 package com.tuckersoft.branchengine.service;
 
-import com.tuckersoft.branchengine.dto.Decision.DecisionPageResponse;
-import com.tuckersoft.branchengine.dto.Decision.DecisionRequest;
-import com.tuckersoft.branchengine.dto.Decision.DecisionResponse;
+import com.tuckersoft.branchengine.dto.DecisionPageResponse;
+import com.tuckersoft.branchengine.dto.DecisionRequest;
+import com.tuckersoft.branchengine.dto.DecisionResponse;
 import com.tuckersoft.branchengine.dto.RealityLogResponse;
 import com.tuckersoft.branchengine.event.DecisionCommittedEvent;
-import com.tuckersoft.branchengine.model.Decision;
-import com.tuckersoft.branchengine.model.Playthrough;
-import com.tuckersoft.branchengine.model.RealityLog;
-import com.tuckersoft.branchengine.model.StoryNode;
+import com.tuckersoft.branchengine.entity.Decision;
+import com.tuckersoft.branchengine.entity.Playthrough;
+import com.tuckersoft.branchengine.entity.PlaythroughStatus;
+import com.tuckersoft.branchengine.entity.RealityLog;
+import com.tuckersoft.branchengine.entity.StoryNode;
 import com.tuckersoft.branchengine.repository.DecisionRepository;
 import com.tuckersoft.branchengine.repository.PlaythroughRepository;
 import com.tuckersoft.branchengine.repository.RealityLogRepository;
@@ -78,7 +79,7 @@ public class DecisionService {
 
         validateWritePermission(playthrough, authentication);
 
-        if ("FINALIZADA".equals(playthrough.getStatus())) {
+        if (PlaythroughStatus.FINALIZADA.equals(playthrough.getStatus())) {
             throw new ResponseStatusException(
                     HttpStatus.CONFLICT,
                     "La partida ya esta finalizada"
@@ -166,7 +167,7 @@ public class DecisionService {
                         saved.getOutcomeCode(),
                         sourceNode.getNodeCode(),
                         saved.getResolvedNodeCode(),
-                        playthrough.getStatus(),
+                        playthrough.getStatus().name(),
                         playthrough.getLucidity(),
                         playthrough.getControlLevel(),
                         playthrough.getEndingCode(),
@@ -254,7 +255,7 @@ public class DecisionService {
 
         // ERRATA v1.3: lucidity se evalua primero.
         if (playthrough.getLucidity() <= 0) {
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_WHITE_BEAR"
             );
@@ -262,7 +263,7 @@ public class DecisionService {
         }
 
         if (playthrough.getControlLevel() >= 100) {
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_PAC_SYMBOL"
             );
@@ -277,7 +278,7 @@ public class DecisionService {
         // ERRATA v1.3
         if (playthrough.getLucidity() <= 0) {
 
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_WHITE_BEAR"
             );
@@ -287,7 +288,7 @@ public class DecisionService {
 
         if (playthrough.getControlLevel() >= 100) {
 
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_PAC_SYMBOL"
             );
@@ -297,7 +298,7 @@ public class DecisionService {
 
         if (destinationCode == null) {
 
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_NETFLIX_CUT"
             );
@@ -312,7 +313,7 @@ public class DecisionService {
 
         if (destination == null) {
 
-            playthrough.setStatus("FINALIZADA");
+            playthrough.setStatus(PlaythroughStatus.FINALIZADA);
             playthrough.setEndingCode(
                     "ENDING_NETFLIX_CUT"
             );
@@ -321,7 +322,7 @@ public class DecisionService {
         }
 
         playthrough.setCurrentNode(destination);
-        playthrough.setStatus("ACTIVA");
+        playthrough.setStatus(PlaythroughStatus.ACTIVA);
         playthrough.setEndingCode(null);
     }
 
@@ -564,7 +565,7 @@ public class DecisionService {
                 decision.getHandlerUnit(),
                 decision.getOutcomeCode(),
                 decision.getStatus(),
-                playthrough.getStatus(),
+                playthrough.getStatus().name(),
                 playthrough.getLucidity(),
                 playthrough.getControlLevel(),
                 playthrough.getEndingCode(),
@@ -589,3 +590,4 @@ public class DecisionService {
         );
     }
 }
+
